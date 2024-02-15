@@ -15,8 +15,8 @@ const Swipert = () => {
       effect={'cards'}
       pagination={{ clickable: true }}
     >
-      {heroTestimon.map((review)=>
-      <SwiperSlide  className='h-full flex justify-center items-center relative bg-transperent shadow-none w-[50%]'>      
+      {heroTestimon.map((review, index)=>
+      <SwiperSlide  className='h-full flex justify-center items-center relative bg-transperent shadow-none w-[50%]' key={index}>      
 
       <div className='w-[100%] h-[90%] flex justify-center '>
        
