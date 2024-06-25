@@ -6,11 +6,7 @@ export const headerLinks = [
   {
     label: 'Create Event',
     route: '/events/create',
-  },
-  {
-    label: 'My Profile',
-    route: '/profile',
-  },
+  }
 ]
 
 export const heroTestimon = [
