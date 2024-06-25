@@ -15,26 +15,26 @@ export const headerLinks = [
 
 export const heroTestimon = [
   {
-    text1: "This events changed my life...",
-    text2: 'I am alive again',
-    name: "Kaparov bakytzhan",
+    text1: "Effortlessly find and book the best events ",
+    text2: 'in town with our sleek and user-friendly platform.',
+    name: "Kaparov Bakytzhan",
     edu: 'KAZATU'
   },
   {
-    text1: 'I was lost',
-    text2: 'There i found myself',
+    text1: 'Unlock a world of adventure and fun with',
+    text2: 'personalized event recommendations on our site!',
     name: "Kairbek Agzam",
     edu: 'KazNU'
   },
   {
-    text1: 'I enhaced my engish',
-    text2: 'You will too',
-    name: "Batalov Rasul",
+    text1: '"Navigate the vibrant local scene with ease using our',
+    text2: 'comprehensive and dynamic events explorer',
+    name: "Muratbekov Aman",
     edu: 'KBTU'
   },
   {
-    text1: 'I found new way',
-    text2: 'To improve myself',
+    text1: 'Discover unforgettable experiences tailored',
+    text2: 'just for you with our intuitive events explorer!',
     name: "Almagul Alina",
     edu: "ENU",
   },

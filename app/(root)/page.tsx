@@ -1,16 +1,19 @@
 import Swipert from "@/components/shared/swiper";
+import Сollection from "@/components/shared/collection";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { getAllEvents } from "@/lib/actions/event.actions";
 
-export default function Home() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
+export default async function Home() {
+
+      const events = await getAllEvents({
+        query: "", 
+        category: "",
+        limit: 6,
+        page: 1,
+    })
+    console.log(events)
   return (<>
    <section className="flex flex-col h-[120vh] lg:md:h[80vh] w-screen pb-20 ">
       <div className="lg:md:h-[50%] h-[30%] w-full p-[20px] flex justify-center">
@@ -21,21 +24,40 @@ export default function Home() {
             </span>
           </div>
       </div >
-      <div className="h-[50%] max-w-[100%] flex flex-row relative gap-10 items-end ">
-        <div className="ld:md:w-[60%] overflow-visible">
-          <Image src='/assets/images/hero2.jpg'className="lg:md:rounded-tr-[50px] " width={750} height={200} alt="hero"></Image>
+      <div className="h-[50%] max-w-[100vw] flex flex-row relative lg:md:gap-10 lg:md:items-end ">
+        <div className="lg:md:w-[60%] w-100 overflow-visible flex flex-col gap-6">
+          <Image src='/assets/images/hero2.jpg'className="lg:md:rounded-tr-[50px] w-[100vw]" width={750} height={200} alt="hero"></Image>
+          <div className="lg:md:hidden w-100 px-4 flex flex-row items-center">
+            
+          <h4>Book and learn helpful tips from 1000+ mentors with our global community </h4>
+          <Button className="bg-blue-950 w-24 rounded-full">Explore</Button>
 
         </div>
-       
-      <div className=" lg:md:w-[50%] h-full">
-        <div className="w-full h-full mt-[50px] relative overflow-visible ">
-        <Swipert></Swipert>
         </div>
+       
+      <div className=" lg:md:w-[50%] h-[60vh]">
+        <Swipert></Swipert>
     </div>
     <div className="hidden lg:md:block z-[-10]  absolute -top-[300px] right-[144px] w-[600px] h-[600px] bg-orange-300 rounded-full opacity-45 mix-blend-multiply filter blur-[45px] animate-blob"></div>
 
       </div>
     
+  </section>
+  <section className="flex flex-col w-screen pb-20 p-1 gap-10 md:lg:p-16">
+    <h2 className="text-2xl font-medium">Our platform is trusted by <span className="text-primary font-semibold text-3xl">million</span> people and <span className="text-primary font-semibold text-3xl">thousand</span> companies</h2>
+    <div>
+      Search
+      Filter
+    </div>
+    <Сollection
+    data={events?.data}
+    emptyTitle="No events found"
+    emptyStateSubtext="Come back later"
+    collectionType= "All_Events"
+    limit= {6}
+    page= {1}
+    totalPages ={2}
+    />
   </section>
    </>
   );

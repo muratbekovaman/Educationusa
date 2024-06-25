@@ -16,7 +16,7 @@ const MobileNav = () => {
     <nav className="flex lg:md:hidden">
     <Sheet>
     <SheetTrigger className="align-middle">
-    <Image src='assets/icons/menu.svg' alt="menu" width={24} height={24}/>
+    <Image src='assets/icons/menushka.svg' alt="menu" width={24} height={24}/>
     </SheetTrigger>
     <SheetContent className="flex flex-col bg-white md:hidden p-0 gap-0" >
       <div  className='h-[13vh] flex items-center'>

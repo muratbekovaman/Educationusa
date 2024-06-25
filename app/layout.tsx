@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <ClerkProvider afterSignInUrl="/" afterSignUpUrl='/' >
     <html lang="en">
-      <body className={`${poppins.variable} overflow-x-hidden`}>{children}</body>      
+      <body className={`${poppins.variable} `}>{children}</body>      
     </html>
     </ClerkProvider>
    

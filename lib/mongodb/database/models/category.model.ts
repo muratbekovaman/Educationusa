@@ -13,3 +13,4 @@ const categorySchema = new Schema({
 })
 
 const Category = models.category || model("category", categorySchema)
+export default Category;

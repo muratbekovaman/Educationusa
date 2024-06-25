@@ -1,6 +1,6 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {  Pagination , EffectCards} from 'swiper/modules';
+import {  Pagination } from 'swiper/modules';
 import 'swiper/css';
 import Image from 'next/image';
 import 'swiper/css';
@@ -10,7 +10,7 @@ import { heroTestimon } from '@/constats';
 const Swipert = () => {
   return (
     <Swiper
-    modules={[ Pagination, EffectCards ]}
+    modules={[ Pagination ]}
       className=' flex justify-center w-[100%] h-full '
       effect={'cards'}
       pagination={{ clickable: true }}
