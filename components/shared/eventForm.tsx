@@ -29,6 +29,7 @@ import { useUploadThing } from "@/lib/uploadthing";
 import { handleError } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { createEvent } from "@/lib/actions/event.actions";
+import { toast } from "react-toastify";
 
 type EventFormProps = {
   userId: string;
@@ -37,7 +38,7 @@ type EventFormProps = {
 function EventForm({ userId, type }: EventFormProps) {
   const { startUpload } = useUploadThing("imageUploader");
   const [files, setFiles] = useState<File[]>([]);
-  const router = useRouter()
+  const router = useRouter();
   const initialValues = eventDefaultValues;
 
   const form = useForm<z.infer<typeof eventFormSchema>>({
@@ -46,7 +47,9 @@ function EventForm({ userId, type }: EventFormProps) {
   });
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof eventFormSchema>) {
-
+    if (!userId) {
+      return 
+    }
     let uploadedImageUrl = values.imageUrl;
 
     if (files.length > 0) {
@@ -54,27 +57,24 @@ function EventForm({ userId, type }: EventFormProps) {
       if (!uploadedImages) {
         return;
       }
-      uploadedImageUrl = uploadedImages[0].url
+      uploadedImageUrl = uploadedImages[0].url;
     }
-    if(type === "Create"){
-      try{
-        console.log("help") 
+    if (type === "Create") {
+      try {
+        console.log("help");
         const newEvent = await createEvent({
           event: { ...values, imageUrl: uploadedImageUrl },
           userId,
-          path: '/profile'
-        })
+          path: "/profile",
+        });
 
-        if(newEvent){
-          form.reset()
+        if (newEvent) {
+          form.reset();
 
-          router.push(`/events/${newEvent._id}`)
+          router.push(`/events/${newEvent._id}`);
         }
-      }
-      
-      catch(error)
-      {
-        handleError(error)
+      } catch (error) {
+        handleError(error);
       }
     }
   }
