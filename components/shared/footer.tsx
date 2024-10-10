@@ -21,7 +21,7 @@ const Footer = () => {
                 <SignedIn>
                 {headerLinks.map((link)=>{
                   return(
-                    <li>
+                    <li key={link.label}>
                     <Link href={link.route} className="hover:underline me-4 md:me-6">{link.label}</Link>
                 </li>
                   )
