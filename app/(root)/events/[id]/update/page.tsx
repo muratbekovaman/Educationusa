@@ -1,5 +1,5 @@
 import EventForm from '@/components/shared/eventForm'
-import { auth } from '@clerk/nextjs'
+import { auth } from '@clerk/nextjs/server'
 import React from 'react'
 
 function page() {
