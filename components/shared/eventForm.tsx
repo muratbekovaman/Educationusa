@@ -29,12 +29,14 @@ import { useUploadThing } from "@/lib/uploadthing";
 import { handleError } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { createEvent } from "@/lib/actions/event.actions";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { toastError } from "./toasters";
 
 type EventFormProps = {
   userId: string;
   type: "Create" | "Update";
 };
+
 function EventForm({ userId, type }: EventFormProps) {
   const { startUpload } = useUploadThing("imageUploader");
   const [files, setFiles] = useState<File[]>([]);
@@ -48,6 +50,7 @@ function EventForm({ userId, type }: EventFormProps) {
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof eventFormSchema>) {
     if (!userId) {
+      toastError("You are not singed in")
       return 
     }
     let uploadedImageUrl = values.imageUrl;
@@ -58,6 +61,10 @@ function EventForm({ userId, type }: EventFormProps) {
         return;
       }
       uploadedImageUrl = uploadedImages[0].url;
+    } else {
+      console.log("imagep elase ")
+      toastError("Upload image please")
+      return 
     }
     if (type === "Create") {
       try {
@@ -80,6 +87,7 @@ function EventForm({ userId, type }: EventFormProps) {
   }
 
   return (
+    <>
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
@@ -331,6 +339,8 @@ function EventForm({ userId, type }: EventFormProps) {
         </Button>
       </form>
     </Form>
+    <ToastContainer />
+    </>
   );
 }
 

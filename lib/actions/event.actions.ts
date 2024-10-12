@@ -2,12 +2,13 @@
 
 import { z } from "zod";
 import { eventFormSchema } from "../validator";
-import { CreateEventParams, GetAllEventsParams } from "@/types";
+import { CreateEventParams, DeleteEventParams, GetAllEventsParams } from "@/types";
 import { handleError } from "../utils";
 import { connectToDatabase } from "../mongodb/database";
 import Event from "../mongodb/database/models/event.model";
 import User from "../mongodb/database/models/user.model";
 import Category from "../mongodb/database/models/category.model";
+import { revalidatePath } from "next/cache";
 
 export const populateEvent = async (query: any) =>{
     return query.populate({path: 'organizer', model: User, select: '_id firstName LastName'})
@@ -68,3 +69,13 @@ export const getAllEvents = async ({query, limit =6, page, category}: GetAllEven
     handleError(error)
   }
 }
+
+export const deleteEvent = async ({eventId, path}: DeleteEventParams) =>{
+ try{
+   await connectToDatabase()
+   const event = await Event.findByIdAndDelete(eventId)
+   if(event) revalidatePath(path)
+ }catch(error){
+  handleError(error)
+ }
+} 

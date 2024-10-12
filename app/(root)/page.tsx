@@ -19,8 +19,8 @@ export default async function Home() {
       <div className="lg:md:h-[50%] h-[30%] w-full p-[20px] flex justify-center">
           <div className="flex lg:md:gap-16 gap-2 lg:md:h-[70%] h-[90%] w-[90%] items-end lg:md:pt-8 pt-1 lg:md:pl-20">
             <h1 className="lg:md:text-6xl text-2xl"><span className="font-semibold">WE CREATE <br/> <span className="text-blue-950">EVENTS</span></span> THAT ARE</h1>
-            <span className="flex lg:md:pl-10 pl-5 lg:md:w-[25%] w-[60%] h-full bg-blue-950 rounded-r-[60px] rounded-tl-[50px] items-center "> 
-              <h3 className="lg:md:text-3xl text-lg text-white ">profitble<br/>  interesting <br/> and inspiring</h3>
+            <span className="flex lg:md:pl-10 px-5 lg:md:w-[25%] w-[60%] h-full bg-blue-950 rounded-r-[60px] rounded-tl-[50px] items-center "> 
+              <h3 className="lg:text-2xl md:text-xl text-lg text-white ">profitble<br/>  interesting <br/> and inspiring</h3>
             </span>
           </div>
       </div >
@@ -44,7 +44,7 @@ export default async function Home() {
     
   </section>
   <section className="flex flex-col w-screen pb-20 p-1 gap-10 md:lg:p-16">
-    <h2 className="text-2xl font-medium">Our platform is trusted by <span className="text-primary font-semibold text-3xl">million</span> people and <span className="text-primary font-semibold text-3xl">thousand</span> companies</h2>
+    <h2 className="text-2xl font-medium">Our platform is trusted by <span className="text-blue-950 font-semibold text-3xl">million</span> people and <span className="text-blue-950 font-semibold text-3xl">thousand</span> companies</h2>
     <div>
       Search
       Filter

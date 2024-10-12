@@ -1,3 +1,4 @@
+
 // import { IEvent } from '@/lib/database/models/event.model'
 import { IEvent } from '@/lib/mongodb/database/models/event.model'
 import { formatDateTime } from '@/lib/utils'
@@ -5,6 +6,9 @@ import { auth } from '@clerk/nextjs/server'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { Button } from '../ui/button'
+import { deleteEvent } from '@/lib/actions/event.actions'
+import { DeleteConfirmation } from './deleteConfirmation'
 // import { DeleteConfirmation } from './DeleteConfirmation'
 
 type CardProps = {
@@ -20,6 +24,7 @@ const Card = ({ event }: CardProps) => {
 
   const isEventCreator = userId === event.organizer._id.toString();
 
+
   return (
     <div className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg md:min-h-[438px]">
       <Link 
@@ -30,12 +35,16 @@ const Card = ({ event }: CardProps) => {
       {/* IS EVENT CREATOR ... */}
 
       {isEventCreator && (
-        <div className="absolute right-2 top-2 flex flex-col gap-4 rounded-xl bg-white p-3 shadow-sm transition-all">
+        <div className="absolute right-2 top-2 flex flex-row gap-4 rounded-xl bg-white p-2 shadow-sm transition-all">
+          <Button variant="outline"> 
           <Link href={`/events/${event._id}/update`}>
             <Image src="/assets/icons/edit.svg" alt="edit" width={20} height={20} />
           </Link>
-
+          </Button>
+        <DeleteConfirmation eventId={event._id}/>
         </div>
+        
+
       )}
 
       <div
