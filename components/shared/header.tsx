@@ -14,7 +14,7 @@ const Header  = async () => {
     <header className='w-full border-b h-[13vh] lg:md:h-[20vh] flex justify-center'>
         <div className='wrapper flex items-center justify-between '>
             <Link href='/#' className='w-36 flex'>
-                <Image src='/assets/icons/EducationUSA_Logo.png' width={100} height={38 } alt='downloading'/>
+                <h1 className='font-bold'>dvizh.kz</h1>
             </Link>
             
 

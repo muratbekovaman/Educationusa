@@ -6,6 +6,7 @@ import qs from 'query-string'
 import { UrlQueryParams, RemoveUrlQueryParams } from '@/types'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { useMutation } from '@tanstack/react-query'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -98,3 +99,24 @@ export const handleError = (error: unknown) => {
 
 
 
+export const splineSendWebhook = async ({userId, color}: {userId: string, color: string}) =>{
+  const method = "POST"
+  const url = "https://hooks.spline.design/GVdy3KrhPjk"
+  const response = await fetch(url, {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "45XnHrTar6gCBP9XwR097NIqB3RzYcfQtyWITtQtqi4",
+      "Accept": "application/json",
+      
+    },
+    body: JSON.stringify({
+      "userId": userId,
+      "color": color
+    })
+  })
+  if(!response.ok){
+    throw new Error("error posting data to spline")
+  }
+  return  response
+}    

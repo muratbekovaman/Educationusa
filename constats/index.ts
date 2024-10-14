@@ -48,3 +48,5 @@ export const eventDefaultValues = {
   isFree: false,
   url: '',
 }
+
+export const avatarsUrls = ["https://cdn.jsdelivr.net/gh/alohe/avatars/png/memo_1.png", "https://cdn.jsdelivr.net/gh/alohe/avatars/png/memo_10.png", "https://cdn.jsdelivr.net/gh/alohe/avatars/png/memo_18.png"]
