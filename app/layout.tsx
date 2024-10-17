@@ -35,7 +35,12 @@ export default function RootLayout({
           <QueryProvider>
 
     <html lang="en">
-      <body className={`${poppins.variable} `}>{children}</body>      
+       <head>
+      <script src="https://telegram.org/js/telegram-web-app.js"></script>
+      </head> 
+      <body className={`${poppins.variable} `}>{children}</body> 
+
+     
     </html>
     </QueryProvider>
 
