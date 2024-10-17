@@ -9,6 +9,7 @@ import {
 
 import { ClerkProvider } from '@clerk/nextjs'
 import { QueryProvider } from "@/components/shared/queryProvider";
+import Script from "next/script";
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -35,12 +36,15 @@ export default function RootLayout({
           <QueryProvider>
 
     <html lang="en">
-       <head>
-      <script src="https://telegram.org/js/telegram-web-app.js"></script>
-      </head> 
-      <body className={`${poppins.variable} `}>{children}</body> 
-
-     
+      <body className={`${poppins.variable} `}>
+        <>
+      {children}
+      <Script
+          src="https://telegram.org/js/telegram-web-app.js"
+          strategy="beforeInteractive"
+        />
+      </>
+      </body>      
     </html>
     </QueryProvider>
 
