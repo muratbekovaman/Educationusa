@@ -66,15 +66,19 @@ export default function Intro(){
     }
     return(
         <div id="animationBox" ref={animationBox} className="relative flex flex-col max-h-[100%] w-[100%] justify-center items-center">
-            <div className="absolute z-[-1]">
-            <h1 className="font-bold">dvizh.kz</h1>
-            <div className="flex flex-col gap-4">
-                <p className="font-bold">Community of knowledge</p> 
-                <p className="font-bold">Let's arrange your plans</p> 
-                <p className="font-bold">Make yourself sociable</p>
+                <div className="absolute backdrop-blur-xl  bg-zinc-100 rounded-lg flex flex-col gap-4 text-center px-8 py-8">
+                    <h1 className="font-bold text-2xl">dvizh.kz</h1>
+                    <div className="flex flex-col gap-2">
+                        <p className="">Community of knowledge</p> 
+                        <p className="">Let's arrange your plans</p> 
+                        <p className="">Make yourself sociable</p>
+                    </div>
+                    <Button id="button">Find your event</Button>
+
+                <div className="absolute right-[10%] z-[-4] top-[-10%] rounded-full w-[100px] h-[100px]"></div>
+
             </div>
-            <Button id="button">Find your event</Button>
-            </div>
+
             {generateRows()}
 
         </div>

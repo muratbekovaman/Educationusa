@@ -108,7 +108,8 @@ export const splineSendWebhook = async ({userId, color}: {userId: string, color:
       "Content-Type": "application/json",
       "Authorization": "45XnHrTar6gCBP9XwR097NIqB3RzYcfQtyWITtQtqi4",
       "Accept": "application/json",
-      
+      "Access-Control-Allow-Origin": "https://hooks.spline.design/",
+      "Access-Control-Expose-Headers": "Content-Encoding,API-Key"
     },
     body: JSON.stringify({
       "userId": userId,

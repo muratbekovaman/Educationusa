@@ -40,7 +40,7 @@ export const SplineWebhook = () =>{
     })
     return (
         <>
-        <main ref={container}>
+        <main className="min-h-[100%]" ref={container}>
             <Spline id="scene" scene="https://prod.spline.design/5Ni0mVqHFOkLaklv/scene.splinecode" 
             onLoad={() => {mutateSpline(), showScene()}}/>
         </main>
